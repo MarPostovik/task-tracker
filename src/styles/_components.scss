@@ -10,8 +10,8 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: var(--task-bg, #fafafa);
-  color: var(--task-color, $text);
+  background:  #fafafa;
+  color: $text;
   padding: 12px;
   margin-bottom: 10px;
   border-radius: $radius;
@@ -25,12 +25,13 @@ ul {
   }
 
   &.completed {
-    --task-color: $completed-color;
+    color: $completed-color;
     border-color: rgb(62, 188, 62) !important;
+    background: $completed-bg !important;
   }
 
   &.urgent {
-    --task-bg: $urgent-bg;
+    background: $urgent-bg;
     border-color: $danger;
   }
 
@@ -39,7 +40,6 @@ ul {
 
 
     .task-text {
-      flex: 1;
       padding-left: 8px;
       padding-right: 8px;
       cursor: pointer;
