@@ -1,0 +1,66 @@
+@use "variables" as *;
+
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid $border;
+  border-radius: $radius;
+}
+
+button {
+  padding: 10px 14px;
+  border: none;
+  border-radius: $radius;
+  background: $primary;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: $primary-hover;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafafa;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: $radius;
+  border: 1px solid $border;
+  transition: 0.2s;
+}
+
+.task:hover {
+  transform: translateY(-2px);
+}
+
+.task span {
+  cursor: pointer;
+}
+
+.task.completed span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+button.delete {
+  background: $danger;
+}
+
+button.delete:hover {
+  opacity: 0.85;
+}
