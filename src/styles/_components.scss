@@ -1,31 +1,5 @@
 @use "variables" as *;
 
-.input-row {
-  display: flex;
-  gap: 10px;
-}
-
-input {
-  flex: 1;
-  padding: 10px;
-  border: 1px solid $border;
-  border-radius: $radius;
-}
-
-button {
-  padding: 10px 14px;
-  border: none;
-  border-radius: $radius;
-  background: $primary;
-  color: white;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-button:hover {
-  background: $primary-hover;
-}
-
 ul {
   list-style: none;
   padding: 0;
@@ -36,31 +10,73 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #fafafa;
+  background: var(--task-bg, #fafafa);
+  color: var(--task-color, $text);
   padding: 12px;
   margin-bottom: 10px;
   border-radius: $radius;
-  border: 1px solid $border;
-  transition: 0.2s;
+  border: 2px solid $border;
+  transition: 0.3s;
+  position: relative;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $hover-shadow;
+  }
+
+  &.completed {
+    --task-color: $completed-color;
+    border-color: rgb(62, 188, 62) !important;
+  }
+
+  &.urgent {
+    --task-bg: $urgent-bg;
+    border-color: $danger;
+  }
+
+  .task-label {
+    display: flex;
+
+
+    .task-text {
+      flex: 1;
+      padding-left: 8px;
+      padding-right: 8px;
+      cursor: pointer;
+    }
+
+    .urgent-label {
+      background: $danger;
+      color: white;
+      padding: 2px 6px;
+      font-size: 0.75rem;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+
+    .completed-label {
+      background: rgb(62, 188, 62);
+      color: white;
+      padding: 2px 6px;
+      font-size: 0.75rem;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+  }
+
+  button.delete {
+    background: $danger;
+    margin-left: 10px;
+  }
+
+  button.delete:hover {
+    opacity: 0.85;
+  }
 }
 
-.task:hover {
-  transform: translateY(-2px);
-}
-
-.task span {
-  cursor: pointer;
-}
-
-.task.completed span {
-  text-decoration: line-through;
-  opacity: 0.6;
-}
-
-button.delete {
-  background: $danger;
-}
-
-button.delete:hover {
-  opacity: 0.85;
+.urgent-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.9rem;
 }
